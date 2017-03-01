@@ -1,12 +1,10 @@
-function passToRecap() {
+function passToAdd() {
 	var arr = $("#input").serializeArray();
 	var json = {};
 
 	$.each(arr, function() {
 		json[this.name] = this.value;
 	});
-
-	alert(JSON.stringify(json));
 
 	$.ajax({
 		url: "adduser.php/",
