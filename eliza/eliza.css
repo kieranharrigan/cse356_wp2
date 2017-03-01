@@ -1,0 +1,27 @@
+body {
+    font-family: "Verdana";
+    background-color: #ffe6ff;
+}
+
+#box {
+    border: none;
+    outline: none;
+    font-size: 30px;
+    font-family: "Verdana";
+    background-color: #ffe6ff;
+    width: 100%;
+}
+
+#chat, #type {
+    font-size: 30px;
+}
+
+#you {
+    float: left;
+}
+
+#sameline {
+    overflow: hidden;
+    display: block;
+    padding: 0 4px 0 10px;
+}
