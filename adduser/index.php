@@ -4,7 +4,7 @@
 </head>
 
 <body>
-    <form id="input" onsubmit="passToRecap();" autocomplete="off">
+    <form id="input" onsubmit="e.preventDefault(); passToRecap();" autocomplete="off">
         Username: <input type="text" name="username" autofocus><br>
         Password: <input type="text" name="password"><br>
         Email: <input type="text" name="email">
