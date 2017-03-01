@@ -1,14 +1,13 @@
 <?php
 session_start();
-$key = 'status';
 $phrase = 'ERROR';
+$none = 'none';
 
 if($_SESSION['username'] !== NULL) {
 	$phrase = 'OK';
-	$key = 'conversations';
 }
 
-$response = array($key => $phrase);
+$response = array("status" => $phrase, "conversations" => $none);
 $json = json_encode($response);
 
 echo $json;

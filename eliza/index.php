@@ -15,7 +15,7 @@
 	session_start();
 
 	if($_SESSION['username'] !== NULL) {
-		echo "Logged in as " . $_SESSION['username'];
+		echo "Logged in as " . $_SESSION['username'] . ".";
 		date_default_timezone_set('America/New_York');
 
 		if(isset($_POST['name'])) {
