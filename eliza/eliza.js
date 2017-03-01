@@ -13,19 +13,17 @@ function startDoc(json) {
         dataType: "json",
         success: function(reply) {
             document.getElementById("chat").innerHTML += reply.eliza + "<br>";
-        if(first) {
-            document.getElementById("type").innerHTML += '<form id="input" autocomplete="off"><span id="you">You: </span><span id="sameline"><input id="box" type="text" name="human"></form>';
-            var form = document.getElementById("input");
-            $('#box').focus();
-            form.addEventListener("submit", submitted);
-            first = false;
-        }
-        
-        $('#box').get(0).scrollIntoView();
+            if(first) {
+                document.getElementById("type").innerHTML += '<form id="input" autocomplete="off"><span id="you">You: </span><span id="sameline"><input id="box" type="text" name="human"></form>';
+                var form = document.getElementById("input");
+                $('#box').focus();
+                form.addEventListener("submit", submitted);
+                first = false;
+            }
+
+            $('#box').get(0).scrollIntoView();
         }
     });
-
-
 }
 
 function submitted(e) {

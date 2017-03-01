@@ -4,8 +4,8 @@ $key = 'status';
 $phrase = 'ERROR';
 
 if($_SESSION['username'] !== NULL) {
-    $phrase = 'OK';
-    $key = 'conversations';
+	$phrase = 'OK';
+	$key = 'conversations';
 }
 
 $response = array($key => $phrase);

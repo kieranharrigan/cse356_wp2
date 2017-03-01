@@ -5,10 +5,12 @@ $key = $fields['key'];
 
 if ($email === NULL || $key === NULL) {
     $phrase = 'Incorrect usage of /verify.';
-} else {
+}
+else {
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         $phrase = 'Invalid email address.';
-    } else {
+    }
+    else {
         $db = new SQLite3('/var/www/html/databases/eliza_db.sqlite');
         $query = 'CREATE TABLE IF NOT EXISTS users (username STRING PRIMARY KEY, password STRING, email STRING, key STRING, disabled INTEGER)';
         $db->exec($query);
@@ -21,13 +23,16 @@ if ($email === NULL || $key === NULL) {
                 if (strcmp($exists['key'], $key) === 0 || strcmp($key, 'abracadabra') === 0) {
                     $db->exec("UPDATE users SET disabled = 0 WHERE lower(email) = '" . strtolower($email) . "'");
                     $phrase = $exists['username'] . ' verified successfully.';
-                } else {
+                }
+                else {
                     $phrase = 'Incorrect email/key.';
                 }
-            } else {
+            }
+            else {
                 $phrase = $exists['username'] . ' is already verified.';
             }
-        } else {
+        }
+        else {
             $phrase = 'No existing user with email, ' . $email;
         }
     }
