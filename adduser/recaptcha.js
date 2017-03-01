@@ -3,8 +3,10 @@ function passToRecap() {
 	var json = {};
 
 	$.each(arr, function() {
-		json[this.name] = this.value || '';
+		json[this.name] = this.value;
 	});
+
+	alert(JSON.stringify(json));
 
 	$.ajax({
 		url: "adduser.php",
