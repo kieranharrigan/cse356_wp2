@@ -9,7 +9,7 @@ if($username === NULL || $password === NULL || $email === NULL) {
 }
 else {
     if(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        echo 'Invalid email address.';
+        echo 'Invalid email address.' . $email;
     }
     else {
         $db = new SQLite3('/var/www/html/databases/eliza_db.sqlite');
