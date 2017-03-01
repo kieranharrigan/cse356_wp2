@@ -1,5 +1,5 @@
 function passToRecap() {
-	var json = JSON.stringify($("#input").serialize();
+	var json = JSON.stringify($("#input").serialize());
 
 	$.ajax({
 		url: "adduser.php",
