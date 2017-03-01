@@ -5,11 +5,11 @@ $password = $fields['password'];
 $email = $fields['email'];
 
 if($username === NULL || $password === NULL || $email === NULL) {
-    echo 'Incorrect usage of /adduser command.';
+    echo 'Incorrect usage of /adduser.';
 }
 else {
     if(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        echo 'Invalid email address.' . $email;
+        echo 'Invalid email address.';
     }
     else {
         $db = new SQLite3('/var/www/html/databases/eliza_db.sqlite');
@@ -26,10 +26,9 @@ else {
             
             echo 'Added disabled user, ' . $username . '.';
             
-            $body = "Thank you for creating an account with Eliza.\r\n\r\n" . "Username: " . $username . "\r\nKey: " . $key . "\r\n\r\nPlease click the following link to verify your email:\r\nhttp://kiharrigan.cse356.compas.cs.stonybrook.edu//verify/?email=" . $email . "&key=" . $key;
+            $body = "Thank you for creating an account with Eliza.\r\n\r\n" . "Username: " . $username . "\r\nKey: " . $key . "\r\n\r\nPlease click the following link to verify your email:\r\nhttp://kiharrigan.cse356.compas.cs.stonybrook.edu/verify/?email=" . $email . "&key=" . $key;
             
             exec("php send.php '$email' '$body' > /dev/null 2>&1 &");
-            
         }
         else {
             echo 'The user, ' . $username . ', already exists.';
