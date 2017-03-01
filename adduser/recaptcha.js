@@ -11,7 +11,7 @@ function passToRecap() {
 	$.ajax({
 		url: "adduser.php/",
 		type: "POST",
-		data: json,
+		data: JSON.stringify(json),
 		success: function(reply) {
 			document.getElementById("result").innerHTML = reply;       
 		}
