@@ -9,7 +9,7 @@ function passToRecap() {
 	alert(JSON.stringify(json));
 
 	$.ajax({
-		url: "adduser.php",
+		url: "adduser.php/",
 		type: "POST",
 		data: json,
 		success: function(reply) {
