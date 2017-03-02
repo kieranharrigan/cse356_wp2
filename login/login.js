@@ -7,7 +7,7 @@ function passToAdd() {
 	});
 
 	$.ajax({
-		url: "login.php/",
+		url: "index.php/",
 		type: "POST",
 		data: JSON.stringify(json),
 		success: function(reply) {
