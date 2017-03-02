@@ -4,7 +4,7 @@ $username = $fields['username'];
 $password = $fields['password'];
 
 if ($username === NULL || $password === NULL) {
-    $phrase = 'Incorrect usage of /login.';
+    $phrase = 'ERROR';
 }
 else {
     $db = new SQLite3('/var/www/html/databases/eliza_db.sqlite');
