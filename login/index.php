@@ -1,15 +1,9 @@
-<html>
-<head>
-	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-	<script type="text/javascript" src="login.js"></script>
-</head>
-
 <?php
 $fields = json_decode(file_get_contents('php://input'), true);
 $username = $fields['username'];
 $password = $fields['password'];
 
-if ($username !== NULL && $password !== NULL) {
+if ($username !== NULL && $password !== NULL) :
 	$db = new SQLite3('/var/www/html/databases/eliza_db.sqlite');
 	$query = 'CREATE TABLE IF NOT EXISTS users (username STRING PRIMARY KEY, password STRING, email STRING, key STRING, disabled INTEGER)';
 	$db->exec($query);
@@ -40,8 +34,14 @@ if ($username !== NULL && $password !== NULL) {
 	$json = json_encode($response);
 
 	echo $json;
-}
+else :
 ?>
+
+<html>
+<head>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script type="text/javascript" src="login.js"></script>
+</head>
 
 <body>
 	<form id="input" onsubmit="event.preventDefault(); passToAdd();" autocomplete="off">
@@ -53,3 +53,7 @@ if ($username !== NULL && $password !== NULL) {
 	<div id="result"></div>
 </body>
 </html>
+
+<?php
+endif;
+?>
