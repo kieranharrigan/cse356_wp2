@@ -7,7 +7,7 @@ function startDoc(json) {
     }
 
     $.ajax({
-        url: "DOCTOR/",
+        url: "/var/www/html/DOCTOR/",
         type: "POST",
         data: json,
         dataType: "json",
