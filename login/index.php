@@ -1,7 +1,7 @@
 <?php
 $fields = json_decode(file_get_contents('php://input'), true);
-$username = $fields[username];
-$password = $fields[password];
+$username = $fields['username'];
+$password = $fields['password'];
 
 if ($username !== NULL && $password !== NULL) :
 	$db = new SQLite3('/var/www/html/databases/eliza_db.sqlite');
