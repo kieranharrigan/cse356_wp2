@@ -14,7 +14,7 @@
 			var json = '{"email":"' + email + '", "key":"' + key + '"}';
 
 			$.ajax({
-				url: "/verify/verify.php/",
+				url: "verify.php",
 				type: "POST",
 				data: json,
 				dataType: "json",
