@@ -35,12 +35,12 @@ if ($username !== NULL && $password !== NULL) {
 	else {
 		$phrase = 'ERROR';
 	}
+
+	$response = array("status" => $phrase);
+	$json = json_encode($response);
+
+	echo $json;
 }
-
-$response = array("status" => $phrase);
-$json = json_encode($response);
-
-echo $json;
 ?>
 
 <body>
