@@ -1,7 +1,5 @@
 <?php
-$fields = '';
-//$fields = json_decode(file_get_contents('php://input'), true);
-echo file_get_contents('php://input');
+$fields = json_decode(file_get_contents('php://input'), true);
 $username = $fields['username'];
 $password = $fields['password'];
 
