@@ -11,9 +11,7 @@ function passToAdd() {
 		type: "POST",
 		data: JSON.stringify(json),
 		success: function(reply) {
-			document.open();
 			document.write(reply);
-			document.close();
 		}
 	});
 }

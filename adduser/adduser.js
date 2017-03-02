@@ -7,11 +7,11 @@ function passToAdd() {
 	});
 
 	$.ajax({
-		url: "adduser.php/",
+		url: "index.php/",
 		type: "POST",
 		data: JSON.stringify(json),
 		success: function(reply) {
-			document.getElementById("result").innerHTML = reply;       
+			document.write(reply);
 		}
 	});
 }
