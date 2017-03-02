@@ -11,7 +11,7 @@ function passToAdd() {
 		type: "POST",
 		data: JSON.stringify(json),
 		success: function(reply) {
-			document.getElementById("result").innerHTML = reply;       
+			document.write(reply);
 		}
 	});
 }
