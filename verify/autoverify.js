@@ -5,7 +5,7 @@ function verify() {
 	var json = '{"email":"' + email + '", "key":"' + key + '"}';
 
 	$.ajax({
-		url: "verify.php/",
+		url: "/verify/verify.php/",
 		type: "POST",
 		data: json,
 		dataType: "json",
