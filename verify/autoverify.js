@@ -1,8 +1,6 @@
 function verify() {
-	var urlParams = new URLSearchParams(window.location.search);
-
-	var email = urlParams.get('email');
-	var key = urlParams.get('key');
+	var email = getUrlParameter('email');
+	var key = getUrlParameter('key');
 
 	var json = '{"email":"' + email + '", "key":"' + key + '"}';
 
@@ -15,4 +13,11 @@ function verify() {
 			document.getElementById("result").innerHTML += reply.phrase + "<br>";
 		}  
 	});
+}
+
+function getUrlParameter(name) {
+	name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+	var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+	var results = regex.exec(location.search);
+	return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
 }
