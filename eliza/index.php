@@ -1,8 +1,8 @@
 <html>
 <head>
-	<script type="text/javascript" src="eliza.js"></script>
+	<script type="text/javascript" src="/eliza/eliza.js"></script>
 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-	<link rel="stylesheet" type="text/css" href="eliza.css">
+	<link rel="stylesheet" type="text/css" href="/eliza/eliza.css">
 </head>
 
 <body>
