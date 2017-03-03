@@ -20,6 +20,10 @@ $exists = $result->fetchArray();
 
 array_push($convos, array("timestamp" => $exists['timestamp'], "name" => $exists['name'], "text" => $exists['text']));
 
+$exists = $result->fetchArray();
+
+array_push($convos, array("timestamp" => $exists['timestamp'], "name" => $exists['name'], "text" => $exists['text']));
+
 $response = array("status" => $phrase, "conversation" => $convos);
 $json = json_encode($response);
 
