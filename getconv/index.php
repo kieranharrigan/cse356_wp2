@@ -10,11 +10,11 @@ if($_SESSION['username'] !== NULL) {
 
 }
 
-$single = new SQLite3('/var/www/html/databases/conv.sqlite');
-$query = 'CREATE TABLE IF NOT EXISTS conv (id STRING PRIMARY KEY, timestamp STRING, name STRING, text STRING)';
-$single->exec($query);
+$convs_db = new SQLite3('/var/www/html/databases/convs.sqlite');
+$query = 'CREATE TABLE IF NOT EXISTS single (id STRING, timestamp STRING, name STRING, text STRING)';
+$convs_db->exec($query);
 
-$result = $single->query("SELECT * FROM conv WHERE lower(id) = '" . strtolower($id) . "'");
+$result = $convs_db->query("SELECT * FROM single WHERE lower(id) = '" . strtolower($id) . "'");
 $exists = $result->fetchArray();
 
 $convos = array();
