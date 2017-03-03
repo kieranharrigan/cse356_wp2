@@ -39,7 +39,7 @@ $convs_db->exec($query);
 
 $json = json_encode($response);
 
-echo $json . PHP_EOL . $query;
+echo $json;
 
 function phrase($human) {
   $human = preg_replace('/\s+/', '', $human);
