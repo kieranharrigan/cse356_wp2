@@ -32,12 +32,12 @@ else {
   $response = array("eliza" => "You: " . $human . "<br>Eliza: " . $input);
 }
 
-$query = "INSERT INTO conv VALUES ('" . $_SESSION['id'] . "', '" . date('n/j/Y') . "', '" . $_SESSION['username'] . "', '" . json_encode($response) ."')";
+$query = "INSERT INTO conv VALUES ('" . $_SESSION['id'] . "', '" . date('n/j/Y') . "', '" . $_SESSION['username'] . "', '" . json_encode($response) . "')";
 $single->exec($query);
 
 $json = json_encode($response);
 
-echo $json;
+echo $json . PHP_EOL . $query;
 
 function phrase($human) {
   $human = preg_replace('/\s+/', '', $human);
