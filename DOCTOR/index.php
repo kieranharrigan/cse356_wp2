@@ -34,7 +34,7 @@ else {
   $text = "You: " . $human . " Eliza: " . $input;
 }
 
-$query = "INSERT INTO single VALUES ('" . $_SESSION['id'] . "', '" . date('n/j/Y') . "', '" . $_SESSION['username'] . "', '" . $text . "')";
+$query = "INSERT INTO single VALUES ('" . $_SESSION['id'] . "', '" . date('n/j/Y') . "', '" . $_SESSION['username'] . "', 'hey')";
 $convs_db->exec($query);
 
 $json = json_encode($response);
