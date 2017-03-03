@@ -15,10 +15,12 @@ if($_SESSION['username'] !== NULL) {
 
 	$result = $single->query("SELECT * FROM conv WHERE lower(id) = '" . strtolower($id) . "'");
 
-	$exists = $result->fetchAll();
+	//$exists = $result->fetchAll();
 
-	foreach($exists as $row){
-        array_push($convos, array("timestamp" => $row['timestamp'], "name" => $row['name'], "text" => $row['text']));
+	foreach($result as $row){
+		$exists = $row->fetchArray();
+		
+        array_push($convos, array("timestamp" => $exists['timestamp'], "name" => $exists['name'], "text" => $exists['text']));
     }
 }
 
