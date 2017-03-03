@@ -15,14 +15,11 @@ $query = 'CREATE TABLE IF NOT EXISTS single (id STRING, timestamp STRING, name S
 $convs_db->exec($query);
 
 $result = $convs_db->query("SELECT * FROM single WHERE lower(id) = '" . strtolower($id) . "'");
-$exists = $result->fetchArray();
 
 $convos = array();
-array_push($convos, array("timestamp" => $exists['timestamp'], "name" => $exists['name'], "text" => $exists['text']));
-
-$exists = $result->fetchArray();
-
-array_push($convos, array("timestamp" => $exists['timestamp'], "name" => $exists['name'], "text" => $exists['text']));
+while($exists = $result->fetchArray()) {
+	array_push($convos, array("timestamp" => $exists['timestamp'], "name" => $exists['name'], "text" => $exists['text']));
+}
 
 $response = array("status" => $phrase, "conversation" => $convos);
 $json = json_encode($response);
