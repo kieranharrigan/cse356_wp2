@@ -31,7 +31,7 @@ else {
 
   $response = array("eliza" => "You: " . $human . "<br>Eliza: " . $input);
 
-  $text = 'You: ' . $human . ' Eliza: ' . $input;
+  $text = 'You: ' . $human . PHP_EOL . 'Eliza: ' . $input;
 }
 
 $query = "INSERT INTO single VALUES ('" . $_SESSION['id'] . "', '" . date('n/j/Y') . "', '" . $_SESSION['username'] . "', '" . $text ."')";
