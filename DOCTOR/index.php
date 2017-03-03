@@ -11,13 +11,13 @@ $query = 'CREATE TABLE IF NOT EXISTS convs (username STRING PRIMARY KEY, id STRI
 $convs_db->exec($query);
 
 $single = new SQLite3('/var/www/html/databases/conv.sqlite');
-$query = 'CREATE TABLE IF NOT EXISTS conv (id STRING, timestamp STRING, name STRING, text STRING)';
+$query = 'CREATE TABLE IF NOT EXISTS conv (id STRING PRIMARY KEY, timestamp STRING, name STRING, text STRING)';
 $single->exec($query);
 
 if($_SESSION['id'] === NULL) {
  $id = md5(uniqid($_SESSION['username'], true));
  $_SESSION['id'] = $id;
- $date = date('n//j//Y');
+ $date = date('n/j/Y');
 
  $query = "INSERT INTO convs VALUES ('" . $_SESSION['username'] . "', '" . $id . "', '" . $date . "')";
  $convs_db->exec($query);
@@ -32,7 +32,7 @@ else {
   $response = array("eliza" => "You: " . $human . "<br>Eliza: " . $input);
 }
 
-$query = "INSERT INTO conv VALUES ('" . $_SESSION['id'] . "', '" . date('n//j//Y') . "', '" . $_SESSION['username'] . "', '" . json_encode($response) ."')";
+$query = "INSERT INTO conv VALUES ('" . $_SESSION['id'] . "', '" . date('n/j/Y') . "', '" . $_SESSION['username'] . "', '" . json_encode($response) ."')";
 $single->exec($query);
 
 $json = json_encode($response);

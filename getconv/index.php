@@ -10,7 +10,7 @@ if($_SESSION['username'] !== NULL) {
 	$phrase = 'OK';
 
 	$single = new SQLite3('/var/www/html/databases/conv.sqlite');
-	$query = 'CREATE TABLE IF NOT EXISTS conv (id STRING, timestamp STRING, name STRING, text STRING)';
+	$query = 'CREATE TABLE IF NOT EXISTS conv (id STRING PRIMARY KEY, timestamp STRING, name STRING, text STRING)';
 	$single->exec($query);
 
 	$result = $single->query("SELECT * FROM conv WHERE lower(id) = '" . strtolower($id) . "'");
