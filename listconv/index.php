@@ -18,6 +18,9 @@ while($exists = $result->fetchArray()) {
 	array_push($convos, array("id" => $exists['id'], "start_date" => $exists['start_date']));
 }
 
+$exists = $result->fetchArray();
+array_push($convos, array("id" => $exists['id'], "start_date" => $exists['start_date']));
+
 $response = array("status" => $phrase, "conversations" => $convos);
 $json = json_encode($response);
 
