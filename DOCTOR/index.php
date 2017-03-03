@@ -17,7 +17,7 @@ if(strcmp($first, '1') === 0) {
  $id = md5(uniqid($_SESSION['username'], true));
  $date = date('n/j/Y');
 
- $query = "INSERT INTO convs VALUES ('" . $_SESSION['username'] . "', '" . $id . "', '" . $date . ")";
+ $query = "INSERT INTO convs VALUES ('" . $_SESSION['username'] . "', '" . $id . "', '" . $date . "')";
  $convs_db->exec($query);
 }
 else {

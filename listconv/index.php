@@ -1,7 +1,6 @@
 <?php
 session_start();
 $phrase = 'ERROR';
-$none = 'none';
 
 if($_SESSION['username'] !== NULL) {
 	$phrase = 'OK';
