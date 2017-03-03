@@ -10,15 +10,17 @@ $convs_db = new SQLite3('/var/www/html/databases/convs.sqlite');
 $query = 'CREATE TABLE IF NOT EXISTS convs (username STRING PRIMARY KEY, id STRING, start_date STRING)';
 $convs_db->exec($query);
 
-
-if(strcmp($first, '1') === 0) {
- $response = array("eliza" => "Eliza: Please tell me how you are feeling.");
-
+if($_SESSION['id'] === NULL) {
  $id = md5(uniqid($_SESSION['username'], true));
+ $_SESSION['id'] = $id;
  $date = date('n/j/Y');
 
  $query = "INSERT INTO convs VALUES ('" . $_SESSION['username'] . "', '" . $id . "', '" . $date . "')";
  $convs_db->exec($query);
+}
+
+if(strcmp($first, '1') === 0) {
+ $response = array("eliza" => "Eliza: Please tell me how you are feeling.");
 }
 else {
   $input = phrase($human);
