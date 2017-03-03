@@ -31,7 +31,7 @@ else {
   $response = array("eliza" => "You: " . $human . "<br>Eliza: " . $input);
 }
 
-$query = "INSERT INTO single VALUES ('" . $_SESSION['id'] . "', '" . date('n/j/Y') . "', '" . $_SESSION['username'] . "', '" . json_encode($response) . "')";
+$query = "INSERT INTO single VALUES ('" . $_SESSION['id'] . "', '" . date('n/j/Y') . "', '" . $_SESSION['username'] . "', 'hey')";
 $convs_db->exec($query);
 
 $json = json_encode($response);
