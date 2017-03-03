@@ -15,8 +15,6 @@ if($_SESSION['username'] !== NULL) {
 
 	$result = $single->query("SELECT * FROM conv WHERE lower(id) = '" . strtolower($id) . "'");
 
-	$exists = $result->fetchAll();
-
 	while($exists = $result->fetchArray()) {
 		array_push($convos, array("timestamp" => $exists['timestamp'], "name" => $exists['name'], "text" => $exists['text']));
 	}
