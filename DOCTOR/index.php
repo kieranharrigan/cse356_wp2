@@ -24,14 +24,17 @@ if($_SESSION['id'] === NULL) {
 
 if(strcmp($first, '1') === 0) {
  $response = array("eliza" => "Eliza: Please tell me how you are feeling.");
+ $text = "Eliza: Please tell me how you are feeling.";
 }
 else {
   $input = phrase($human);
 
   $response = array("eliza" => "You: " . $human . "<br>Eliza: " . $input);
+
+  $text = "You: " . $human . PHP_EOL . "Eliza: " . $input
 }
 
-$query = "INSERT INTO single VALUES ('" . $_SESSION['id'] . "', '" . date('n/j/Y') . "', '" . $_SESSION['username'] . "', 'hey')";
+$query = "INSERT INTO single VALUES ('" . $_SESSION['id'] . "', '" . date('n/j/Y') . "', '" . $_SESSION['username'] . "', '" . $text . "')";
 $convs_db->exec($query);
 
 $json = json_encode($response);
