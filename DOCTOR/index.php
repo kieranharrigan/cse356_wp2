@@ -32,6 +32,7 @@ else {
   $response = array("eliza" => "You: " . $human . "<br>Eliza: " . $input);
 }
 
+$single = new SQLite3('/var/www/html/databases/conv.sqlite');
 $query = "INSERT INTO conv VALUES ('" . $_SESSION['id'] . "', '" . date('n/j/Y') . "', '" . $_SESSION['username'] . "', '" . json_encode($response) . "')";
 $single->exec($query);
 
