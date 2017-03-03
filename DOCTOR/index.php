@@ -43,7 +43,7 @@ echo $json . PHP_EOL . $query;
 
 function phrase($human) {
   $human = preg_replace('/\s+/', '', $human);
-  $phrase = "Sorry, I didn't catch that.";
+  $phrase = "Sorry, I did not catch that.";
 
   $list = array("Why do you feel that way?", "What makes you feel that way?", "Hmmmm I see, please go on.", "Interesting, can you elaborate?");
 
